@@ -1,3 +1,4 @@
 module.exports = {
-    mongoURI: "mongodb://localhost:27017/fullstackmern" 
+    mongoURI: "mongodb://localhost:27017/fullstackmern",
+    secretOrKey: "secret"
   };
