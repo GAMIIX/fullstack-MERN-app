@@ -1,9 +1,11 @@
 const express = require("express");
+// mongoose sert a lire la base de données MongoDB
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
 const app = express();
+
 // Bodyparser middleware
 app.use(
     bodyParser.urlencoded({
