@@ -9,7 +9,6 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 //Component
 import Navbar from "./components/layout/Navbar";
 
-
 // All routes
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
@@ -20,6 +19,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import { Provider } from "react-redux";
 import store from "./store";
 
+// Route privé
 import PrivateRoute from "./components/private-route/PrivateRoute";
 
 // Check for token to keep user logged in

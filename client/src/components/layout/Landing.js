@@ -8,7 +8,7 @@ import { loginUser } from "../../actions/authActions";
 
 class Landing extends Component {
 
-  componentDidMount() {
+  UNSAFE_componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");

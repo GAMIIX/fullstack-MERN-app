@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+console.log(router);
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
@@ -87,9 +88,7 @@ router.post("/login", (req, res) => {
                     }
                 );
             } else {
-                return res
-                    .status(400)
-                    .json({ passwordincorrect: "Password incorrect" });
+                return res.status(400).json({ passwordincorrect: "Password incorrect" });
             }
         });
     });
