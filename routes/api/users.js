@@ -18,6 +18,7 @@ router.post("/register", (req, res) => {
     // Form validation
     const { errors, isValid } = validateRegisterInput(req.body);
     // Check validation
+    // return 400 if the validate return true
     if (!isValid) {
         return res.status(400).json(errors);
     }
@@ -32,6 +33,7 @@ router.post("/register", (req, res) => {
             });
             // Hash password before saving in database
             bcrypt.genSalt(10, (err, salt) => {
+                if (err) throw err;
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
                     if (err) throw err;
                     newUser.password = hash;
