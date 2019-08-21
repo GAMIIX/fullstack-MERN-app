@@ -17,7 +17,7 @@ class Register extends Component {
         };
     }
 
-    UNSAFE_componentDidMount() {
+    componentDidMount() {
         // If logged in and user navigates to Register page, should redirect them to dashboard
         if (this.props.auth.isAuthenticated) {
           this.props.history.push("/dashboard");
@@ -25,7 +25,7 @@ class Register extends Component {
         console.log(this.props.auth.isAuthenticated)
       }
 
-    UNSAFE_componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
@@ -36,6 +36,7 @@ class Register extends Component {
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
+
     onSubmit = e => {
         e.preventDefault();
         const newUser = {
@@ -135,7 +136,7 @@ class Register extends Component {
                                     className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                                 >
                                     Sign up
-                </button>
+                                </button>
                             </div>
                         </form>
                     </div>

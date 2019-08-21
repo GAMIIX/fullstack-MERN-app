@@ -10,11 +10,12 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => (
       auth.isAuthenticated === true ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/login" />
-      )
+          <Redirect to="/login" />
+        )
     }
   />
 );
+
 PrivateRoute.propTypes = {
   auth: PropTypes.object.isRequired
 };
@@ -23,6 +24,9 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-// connect() does just that; it connects our React components 
+// connect() does just that it connects our React components 
 // to our Redux store provided by the Provider component
+console.log(mapStateToProps);
+console.log(PrivateRoute);
+
 export default connect(mapStateToProps)(PrivateRoute);

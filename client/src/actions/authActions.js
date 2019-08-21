@@ -52,7 +52,10 @@ export const setUserLoading = () => {
         type: USER_LOADING
     };
 };
+
 // Log user out
+// This function thanks to the dispatch keyword 
+// will be able on the entire project
 export const logoutUser = () => dispatch => {
     // Remove token from local storage
     localStorage.removeItem("jwtToken");
