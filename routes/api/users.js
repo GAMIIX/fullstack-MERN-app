@@ -3,9 +3,11 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
+
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
+
 // Load User model
 const User = require("../../models/User");
 
@@ -33,8 +35,7 @@ router.post("/register", (req, res) => {
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
                     if (err) throw err;
                     newUser.password = hash;
-                    newUser
-                        .save()
+                    newUser.save()
                         .then(user => res.json(user))
                         .catch(err => console.log(err));
                 });
@@ -42,8 +43,6 @@ router.post("/register", (req, res) => {
         }
     });
 });
-
-module.exports = router;
 
 // @route POST api/users/login
 // @desc Login user and return JWT token
@@ -77,7 +76,8 @@ router.post("/login", (req, res) => {
                     payload,
                     keys.secretOrKey,
                     {
-                        expiresIn: 31556926 // 1 year in seconds
+                        // 1 year in seconds
+                        expiresIn: 31556926 
                     },
                     (err, token) => {
                         res.json({
@@ -92,3 +92,5 @@ router.post("/login", (req, res) => {
         });
     });
 });
+
+module.exports = router;

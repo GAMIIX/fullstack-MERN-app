@@ -2,14 +2,12 @@ const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 
 const mongoose = require("mongoose");
-//User nous permet de donner un passport à un user enregistré
+// User nous permet de donner un passport à un user enregistré
 const User = mongoose.model("users");
 
-//Nous exportons la clé pour acceder a MongoDB
+// Nous exportons la clé pour acceder a MongoDB
 const keys = require("../config/keys");
 const opts = {};
-
-
 
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = keys.secretOrKey;

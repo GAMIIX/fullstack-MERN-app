@@ -26,7 +26,4 @@ const mapStateToProps = state => ({
 
 // connect() does just that it connects our React components 
 // to our Redux store provided by the Provider component
-console.log(mapStateToProps);
-console.log(PrivateRoute);
-
 export default connect(mapStateToProps)(PrivateRoute);

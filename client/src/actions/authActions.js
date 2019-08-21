@@ -1,7 +1,7 @@
 import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
-import {GET_ERRORS,SET_CURRENT_USER,USER_LOADING} from "./types";
+import {GET_ERRORS, SET_CURRENT_USER, USER_LOADING} from "./types";
 
 // Register User
 // Dispatch is used to send actions to the reducers
@@ -16,9 +16,12 @@ export const registerUser = (userData, history) => dispatch => {
             })
         );
 };
+
 // Login - get user token
 export const loginUser = userData => dispatch => {
     axios
+        // thanks to the proxy this link bellow will be
+        // http://localhost/5000+/api/users/login
         .post("/api/users/login", userData)
         .then(res => {
             // Save to localStorage
@@ -39,6 +42,7 @@ export const loginUser = userData => dispatch => {
             })
         );
 };
+
 // Set logged in user
 export const setCurrentUser = decoded => {
     return {
@@ -46,6 +50,7 @@ export const setCurrentUser = decoded => {
         payload: decoded
     };
 };
+
 // User loading
 export const setUserLoading = () => {
     return {
