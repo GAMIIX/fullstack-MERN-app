@@ -1,5 +1,3 @@
-//require permet d'aller chercher dans node_modules
-
 // Allow us to set an app. Express maintain the backend
 const express = require("express");
 
